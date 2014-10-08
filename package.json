@@ -2,12 +2,16 @@
   "name": "tenableProject",
   "version": "0.0.1",
   "description": "A basic web service app with demo of a RESTful API",
+  "author": "Jason T. Yeh",
+  "license": "WTFPL",
+  "repository": {
+      "type": "git",
+      "url": "https://github.com/jaxyeh/tenable"
+  },
   "main": "index.js",
   "scripts": {
     "test": "mocha test --recursive"
   },
-  "author": "Jason T. Yeh",
-  "license": "WTFPL",
   "dependencies": {
     "boom": "^2.5.1",
     "faker": "^2.0.1",
