@@ -1,13 +1,13 @@
 var Hapi = require('hapi'),
-    //Config = require('./config');
+    Config = require('./config.json');
     pack = require('./package'),
     swaggerOptions = {
-        basePath: 'http://localhost:8080',
+        basePath: 'http://' + Config.server.hostname + ':' + Config.server.port,
         apiVersion: pack.version,
         pathPrefixSize: 2
     },
     dbOptions = {
-        "url": "localhost/test",
+        "url": Config.mongo.url + "/" + Config.mongo.db,
         "settings": {
             "db": {
                 "native_parser": false
@@ -16,7 +16,7 @@ var Hapi = require('hapi'),
     };
 
 // Create a HTTP server with a host and port
-var server = Hapi.createServer('localhost', 8080, { cors: true, debug: { request: ['error']} });
+var server = Hapi.createServer(Config.server.hostname, Config.server.port, { cors: true, debug: { request: ['error']} });
 
 // Register Swagger API Documentation
 server.pack.register({

@@ -1,4 +1,5 @@
 require('../../mocha-startup');
+var Config = require('../../config.json');
 var hippie = require('hippie');
 
 hippie.assert.showDiff = true;
@@ -7,7 +8,7 @@ hippie.assert.showDiff = true;
 function testApi() {
     return hippie()
         .json()
-        .base('http://localhost:8080/v1')
+        .base('http://' + Config.server.hostname + ':' + Config.server.port + '/v1')
         //.auth('user', 'pass') // Note: (Optional) Only needed if BasicAuth is included
         .expectHeader('Content-Type', 'application/json; charset=utf-8')
 }

@@ -1,0 +1,12 @@
+{
+    "server": {
+        "hostname": "localhost",
+        "port": 8080
+    },
+    "mongo": {
+        "username": "",
+        "password": "",
+        "url": "localhost:27017",
+        "db": "test"
+    }
+}

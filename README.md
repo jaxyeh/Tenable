@@ -12,9 +12,9 @@ After prerequisites is installed, clone this repo, and run `npm install`:
     $ cd tenable
     $ npm install
 
-You will need to copy `config.js.example` to `config.json`, then adjust the configuration to your machine setup. After it's configured, run the server.
+You will need to copy `config.json.example` to `config.json`, then adjust the configuration to your machine setup. After it's configured, run the server.
     
-    $ cp config.js.example config.js
+    $ cp config.json.example config.json
     $ npm start
 
 ## API Documentation
