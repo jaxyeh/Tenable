@@ -17,6 +17,8 @@ You will need to copy `config.json.example` to `config.json`, then adjust the co
     $ cp config.json.example config.json
     $ npm start
 
+For this demo, HTTP Basic Auth Username and Password is hardcoded as `admin` and `password`. You can find the user object stored at `/models/Users.js`.
+
 ## API Documentation
 
 While Node.JS Server is running, open web browser and go to:
