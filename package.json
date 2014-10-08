@@ -1,0 +1,24 @@
+{
+  "name": "tenableProject",
+  "version": "0.0.1",
+  "description": "A basic web service app with demo of a RESTful API",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha test --recursive"
+  },
+  "author": "Jason T. Yeh",
+  "license": "WTFPL",
+  "dependencies": {
+    "boom": "^2.5.1",
+    "faker": "^2.0.1",
+    "hapi": "~6.11.x",
+    "hoek": "^2.5.0",
+    "joi": "^4.7.0",
+    "monk": "^0.9.0"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "hippie": "^0.3.0",
+    "mocha": "^1.21.4"
+  }
+}
