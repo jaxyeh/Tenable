@@ -2,7 +2,12 @@
 ## Introduction
 
 
+# API Documentation
 
+Open browser and run 
+
+    http://localhost:8080/documentation
+    
 ## Generate & Import "fake" configurations data
 
 Run `fakeit.js` to generate fake data into `fakedata.json` json file (about 27mb). 

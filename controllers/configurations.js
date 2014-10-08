@@ -10,13 +10,15 @@ var ORDER = 1;
 
 // Find All Configurations
 exports.findAll = {
+    tags: ['api'],
+    description: 'List Configurations',
+    notes: 'Returns list of configurations with multiple query options',
     validate: {
         query: {
-            limit: Joi.number().optional(),
-            skip: Joi.number().optional(),
-            sort: Joi.string().regex(/^\-?[a-zA-Z]*$/).optional()
-            // Example regex that allows multiple sort (e.g. "name,hostname", "-name,hostname,-port")
-            // sort: Joi.string().regex(/^\-?[a-zA-Z]+(?:\,\-?[a-zA-Z]+)*$/).optional()
+            limit: Joi.number().optional().description('Maximum number of entries query will return (Default: 10)'),
+            skip: Joi.number().optional().description('Where MongoDB begins returning results, i.e. Pagination (Default: 0)'),
+            sort: Joi.string().regex(/^\-?[a-zA-Z]*$/).optional().description('Which field to sort, "-" prefix will specify descending order instead of ascending order (Default: "_id")')
+            // sort: Joi.string().regex(/^\-?[a-zA-Z]+(?:\,\-?[a-zA-Z]+)*$/).optional() // Example of another regex that allows multiple sort (e.g. "name,hostname", "-name,hostname,-port")
         }
     },
     handler: function (request, reply) {
@@ -70,6 +72,9 @@ exports.findAll = {
 
 // Create Config
 exports.create = {
+    tags: ['api'],
+    description: 'Create Configuration',
+    notes: 'Create a new configuration data and returns new ObjectId',
     validate: {
         payload: {
             name: Joi.string().required(),
@@ -99,6 +104,9 @@ exports.create = {
 
 // Update Config
 exports.update = {
+    tags: ['api'],
+    description: 'Update Configuration',
+    notes: 'Updates a configuration data by the id passed in the path',
     validate: {
         params: {
             id: Joi.string().required() // Requires ObjectId
@@ -132,6 +140,9 @@ exports.update = {
 
 // Remove Config
 exports.remove = {
+    tags: ['api'],
+    description: 'Remove Configuration',
+    notes: 'Removes a configuration data by the id passed in the path',
     validate: {
         params: {
             id: Joi.string().required() // Requires ObjectId
