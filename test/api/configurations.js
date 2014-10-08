@@ -3,18 +3,60 @@ var hippie = require('hippie');
 
 hippie.assert.showDiff = true;
 
-// Standard API requirements
+// Standard base requirements for all API tests
 function testApi() {
     return hippie()
         .json()
         .base('http://localhost:8080/v1')
-        //.auth('user', 'pass')
+        //.auth('user', 'pass') // Note: (Optional) Only needed if BasicAuth is included
         .expectHeader('Content-Type', 'application/json; charset=utf-8')
 }
 
 describe('Test Configurations API', function () {
 
     var config_id; // Temporary placeholder for config ObjectId
+
+    /**
+     * An alternative example approach using cookie session
+     *
+     * It's removed since "Auth" middleware is not included in tests...
+     */
+
+    //describe('Login', function () {
+    //
+    //    it('Bad username/password', function (done) {
+    //        testApi()
+    //            .post('/auth/login')
+    //            .send({
+    //                "username": "john",
+    //                "password": "doe"
+    //            })
+    //            .expectStatus(401)
+    //            .expectValue('statusCode', 401)
+    //            .expectValue('error', 'Unauthorized')
+    //            .expectValue('message', 'Invalid username or password')
+    //            .end(function(err, res, body) {
+    //                if (err) throw err;
+    //                done();
+    //            });
+    //    });
+    //
+    //    it('Successfully Login', function (done) {
+    //        testApi()
+    //            .post('/auth/login')
+    //            .send({
+    //                "username": "admin",
+    //                "password": "password"
+    //            })
+    //            .expectStatus(200)
+    //            .expectValue('status', 'ok')
+    //            .end(function(err, res, body) {
+    //                if (err) throw err;
+    //                done();
+    //            });
+    //    });
+    //
+    //});
 
     describe('List Configurations', function () {
 
@@ -103,5 +145,20 @@ describe('Test Configurations API', function () {
         });
 
     });
+
+    //describe('Logout', function () {
+    //
+    //    it('Successfully Logout', function (done) {
+    //        testApi()
+    //            .get('/auth/logout')
+    //            .expectStatus(200)
+    //            .expectValue('status', 'ok')
+    //            .end(function(err, res, body) {
+    //                if (err) throw err;
+    //                done();
+    //            });
+    //    });
+    //
+    //});
 
 });

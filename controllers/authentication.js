@@ -1,6 +1,11 @@
-var Hoek = require('hoek');
 var Boom = require('boom');
 var Joi = require('joi');
+
+var users = {
+    admin: {
+        password: 'password'
+    }
+};
 
 exports.index = {
     handler: function (request, reply) {
@@ -11,13 +16,27 @@ exports.index = {
 };
 
 exports.login = {
+    tags: ['api'],
+    validate: {
+        payload: {
+            username: Joi.string().required(),
+            password: Joi.string().required()
+        }
+    },
     handler: function (request, reply) {
-        reply({});
+        var user = users[request.payload.username] || null;
+        if (!user || user.password !== request.payload.password) {
+            return reply(Boom.unauthorized('Invalid username or password'));
+        }
+        request.auth.session.set(user);
+        return reply({ status: 'ok' });
     }
 };
 
 exports.logout = {
+    tags: ['api'],
     handler: function (request, reply) {
-        reply({});
+        request.auth.session.clear();
+        return reply({ status: 'ok' });
     }
 };

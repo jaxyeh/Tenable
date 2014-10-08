@@ -1,12 +1,26 @@
 
-## Introduction
+# Introduction
 
+
+## Install
+
+Install Mongo by following the [official install|http://docs.mongodb.org/manual/installation/] instructions.
+
+    $ git clone git://github.com/jaxyeh/tenable.git
+    $ npm install
+    $ cp config.js.example config.js
+    $ npm start
+
+# Testing
+
+    $ npm test
 
 # API Documentation
 
 Open browser and run 
 
     http://localhost:8080/documentation
+
     
 ## Generate & Import "fake" configurations data
 
@@ -18,7 +32,9 @@ Import the fake data into MongoDB using `mongoimport` tool.
 
     $ mongoimport --db test --collection configurations --file fakedata.json
 
-## Quick and dirty way to lists thousands entries
+## Quick and dirty way to retrieve thousands entries
 
-    $ curl http://localhost:8080/v1/config?limit=100000
+Usually, web browser does not do well with very large data. You might get better experience using curl queries instead.
+
+    $ curl http://<user>:<pass>@localhost:8080/v1/config?limit=100000
 

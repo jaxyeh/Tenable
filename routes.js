@@ -1,4 +1,4 @@
-var Authentication = require('./controllers/authentication');
+//var Authentication = require('./controllers/authentication'); // Only needed for Cookie Session
 var Configurations = require('./controllers/configurations');
 
 /**
@@ -7,9 +7,12 @@ var Configurations = require('./controllers/configurations');
  */
 exports.endpoints = [
 
-    { method: 'GET',    path: '/',                      config: Authentication.index },
-    { method: 'POST',   path: '/v1/login',              config: Authentication.login },
-    { method: 'GET',    path: '/v1/logout',             config: Authentication.logout },
+    /**
+     * An alternative example approach using cookie session
+     */
+    //{ method: 'GET',    path: '/',                      config: Authentication.index },
+    //{ method: 'POST',   path: '/v1/auth/login',         config: Authentication.login },
+    //{ method: 'GET',    path: '/v1/auth/logout',        config: Authentication.logout },
 
     { method: 'GET',    path: '/v1/config',             config: Configurations.findAll },
     { method: 'PUT',    path: '/v1/config',             config: Configurations.create },

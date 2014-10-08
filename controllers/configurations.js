@@ -1,4 +1,3 @@
-var Hoek = require('hoek');
 var Boom = require('boom');
 var Joi = require('joi');
 
