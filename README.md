@@ -29,7 +29,7 @@ While Node.JS Server is running, open web browser and go to:
 
 ## Testing Code
 
-The system comes with [Mocha|http://visionmedia.github.io/mocha/] and [Hippie|https://github.com/vesln/hippie] tools to provide end-to-end API testing. You can run the test with the following command: 
+The system comes with [Mocha|http://mochajs.org/] and [Hippie|https://github.com/vesln/hippie] tools to provide end-to-end API testing. You can run the test with the following command: 
 
     $ npm test
 
